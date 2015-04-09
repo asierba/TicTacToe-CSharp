@@ -1,8 +1,8 @@
-* displaythe game board	
-	- at the start of the game 
-	- after everymove
-* playa game of tic-tac-toe between two computer players
+* play a game of tic-tac-toe between two computer players
+	- add abstraction for game board
 	- make random moves byeach player
+* displaythe game board	
+	- after everymove
 * pause for one second before updating the game board between moves
 * offer to run another game at the end of a game
 * displaythe result of the game at the end of the game

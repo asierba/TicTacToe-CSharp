@@ -13,7 +13,14 @@
 
         It should_wait_for_user_input = () =>
             The<IConsole>().WasToldTo(x => x.ReadKey());
+    }
 
-        static StringWriter output;
+    public class given_the_app_starts_and_the_user_presses_a_key : WithSubject<App>
+    {
+        It should_show_an_empty_board = () =>
+        {
+            The<IConsole>().WasToldTo(x => x.WriteLine("Game Board:"));
+            The<IConsole>().WasToldTo(x => x.WriteLine("[ ] [ ] [ ]\n[ ] [ ] [ ]\n[ ] [ ] [ ]"));
+        };
     }
 }
