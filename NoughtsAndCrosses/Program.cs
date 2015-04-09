@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            var app = new Application(new ConsoleWrapper());
+            var app = new Application(new ConsoleWrapper(), new GameBoard());
             app.Run();
         }
     }

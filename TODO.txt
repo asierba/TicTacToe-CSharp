@@ -1,7 +1,6 @@
 * play a game of tic-tac-toe between two computer players
-	- make random moves byeach player
-* displaythe game board	
-	- after everymove
+	- dont make a move to taken square
+* implement game is over logic
 * pause for one second before updating the game board between moves
 * offer to run another game at the end of a game
 * displaythe result of the game at the end of the game

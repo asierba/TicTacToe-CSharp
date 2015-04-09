@@ -45,6 +45,7 @@
     <Compile Include="ConsoleWrapper.cs" />
     <Compile Include="GameBoard.cs" />
     <Compile Include="IConsole.cs" />
+    <Compile Include="IGameBoard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

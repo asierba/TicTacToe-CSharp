@@ -2,7 +2,7 @@ namespace NoughtsAndCrosses
 {
     using System;
 
-    public class GameBoard
+    public class GameBoard : IGameBoard
     {
         private const char Empty = ' ';
 
@@ -38,6 +38,11 @@ namespace NoughtsAndCrosses
                 result += Environment.NewLine;
             }
             return result;
+        }
+
+        public bool GameIsOver()
+        {
+            throw new NotImplementedException();
         }
     }
 }
