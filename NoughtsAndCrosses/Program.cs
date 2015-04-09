@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 
 namespace NoughtsAndCrosses
 {
-    class Program
+    using System.Threading;
+
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            var app = new App();
+
+            Console.ReadKey();
         }
     }
 }
