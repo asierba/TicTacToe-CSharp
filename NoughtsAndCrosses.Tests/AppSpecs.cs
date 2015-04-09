@@ -23,7 +23,10 @@
         It should_show_an_empty_board = () =>
         {
             The<IConsole>().WasToldTo(x => x.WriteLine("Game Board:"));
-            The<IConsole>().WasToldTo(x => x.WriteLine("[ ] [ ] [ ]\n[ ] [ ] [ ]\n[ ] [ ] [ ]"));
+            The<IConsole>().WasToldTo(x => x.WriteLine(@"[ ][ ][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+")); // TODO is this the correct place to test this?
         };
     }
 }
