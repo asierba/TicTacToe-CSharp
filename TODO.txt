@@ -1,0 +1,7 @@
+* prompt the user to begin the game
+* playa game of tic-tac-toe between two computer players
+* displaythe game board at the start of the game and ensure it is updated after everymove
+* make random moves byeach player
+* pause for one second before updating the game board between moves
+* offer to run another game at the end of a game
+* displaythe result of the game at the end of the game
