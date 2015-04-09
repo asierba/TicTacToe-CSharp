@@ -1,5 +1,4 @@
 * play a game of tic-tac-toe between two computer players
-	- add abstraction for game board
 	- make random moves byeach player
 * displaythe game board	
 	- after everymove

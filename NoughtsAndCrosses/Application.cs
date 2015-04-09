@@ -1,8 +1,15 @@
 namespace NoughtsAndCrosses
 {
-    public class App
+    public class Application
     {
-        public App(IConsole console)
+        private readonly IConsole console;
+
+        public Application(IConsole console)
+        {
+            this.console = console;
+        }
+
+        public void Run()
         {
             console.WriteLine("Tic-Tac-Toe Game");
             console.WriteLine("================");
@@ -12,7 +19,8 @@ namespace NoughtsAndCrosses
             console.ReadKey();
 
             console.WriteLine("Game Board:");
-            console.WriteLine("[ ] [ ] [ ]\n[ ] [ ] [ ]\n[ ] [ ] [ ]");
+            var gameBoard = new GameBoard();
+            console.WriteLine(gameBoard.Display());
 
             console.ReadKey();
         }
