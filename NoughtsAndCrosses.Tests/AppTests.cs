@@ -8,16 +8,11 @@
 
     public class given_the_app_starts : WithSubject<App>
     {
-        Establish context = () =>
-        {
-            output = new StringWriter();
-            Console.SetOut(output);
-        };
+        It should_prompt_the_user_to_begin_the_game = () => 
+            The<IConsole>().WasToldTo(x => x.WriteLine("Press Any Key to begin the game"));
 
-        It should_prompt_the_user_to_begin_the_game = () =>
-        {
-            output.ToString().ShouldContain("Press Any Key to begin the game");
-        };
+        It should_wait_for_user_input = () =>
+            The<IConsole>().WasToldTo(x => x.ReadKey());
 
         static StringWriter output;
     }

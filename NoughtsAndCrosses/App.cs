@@ -4,9 +4,14 @@ namespace NoughtsAndCrosses
 
     public class App
     {
-        public App()
+        public App(IConsole console)
         {
-            Console.WriteLine("Tic-Tac-Toe Game. Press Any Key to begin the game");
+            console.WriteLine("Tic-Tac-Toe Game");
+            console.WriteLine("================");
+
+            console.WriteLine("Press Any Key to begin the game");
+
+            console.ReadKey();
         }
     }
 }
