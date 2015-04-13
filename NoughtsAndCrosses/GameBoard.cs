@@ -1,7 +1,7 @@
+using System;
+
 namespace NoughtsAndCrosses
 {
-    using System;
-
     public class GameBoard : IGameBoard
     {
         private const char Empty = ' ';
@@ -47,8 +47,47 @@ namespace NoughtsAndCrosses
 
         public bool GameIsOver()
         {
+            return ThreeEqualInARow() || ThreeEqualInAColumn() || ThreeEqualInDiagonal() || FullBoard();
+        }
+
+        private bool FullBoard()
+        {
+            foreach (var square in squares)
+            {
+                if(square == Empty)
+                    return false;
+            }
+
+            return true;
+        }
+
+        private bool ThreeEqualInARow()
+        {
+            for (var y = 0; y < squares.GetLength(0); y++)
+            {
+                if (!IsFree(new Position(0,y)) && 
+                    squares[0, y] == squares[1, y] && squares[0, y] == squares[2, y])
+                    return true;
+            }
             return false;
-            throw new NotImplementedException();
+        }
+
+        private bool ThreeEqualInAColumn()
+        {
+            for (var x = 0; x < squares.GetLength(0); x++)
+            {
+                if (!IsFree(new Position(x, 0)) && 
+                    squares[x, 0] == squares[x, 1] && squares[x, 0] == squares[x, 2])
+                    return true;
+            }
+            return false;
+        }
+
+        private bool ThreeEqualInDiagonal()
+        {
+            return !IsFree(new Position(1, 1)) && 
+                (squares[1, 1] == squares[0, 0] && squares[1, 1] == squares[2, 2]
+                || squares[1, 1] == squares[2, 0] && squares[1, 1] == squares[0, 2]);
         }
     }
 }
