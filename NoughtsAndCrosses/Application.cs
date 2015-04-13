@@ -22,10 +22,13 @@ namespace NoughtsAndCrosses
 
         public void Run()
         {
+            console.WriteLine("");
             console.WriteLine("Tic-Tac-Toe Game");
             console.WriteLine("================");
+            console.WriteLine("");
 
             console.WriteLine("Press Any Key to begin the game");
+            console.WriteLine("");
             console.ReadKey();
 
             var currentPlayer = player1;
@@ -45,8 +48,6 @@ namespace NoughtsAndCrosses
             console.WriteLine(gameBoard.Display());
             console.WriteLine("GAME OVER!!");
             console.WriteLine(gameBoard.Result);
-
-            console.ReadKey();
         }
 
         private Player Toggle(Player currentPlayer)
