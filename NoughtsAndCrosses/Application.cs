@@ -1,6 +1,6 @@
 namespace NoughtsAndCrosses
 {
-    using System;
+    using System.Threading;
 
     public class Application
     {
@@ -8,10 +8,16 @@ namespace NoughtsAndCrosses
 
         private readonly IGameBoard gameBoard;
 
+        private readonly Player player1;
+
+        private readonly Player player2;
+
         public Application(IConsole console, IGameBoard gameBoard)
         {
             this.console = console;
             this.gameBoard = gameBoard;
+            player1 = new Player('X');
+            player2 = new Player('O');
         }
 
         public void Run()
@@ -22,13 +28,15 @@ namespace NoughtsAndCrosses
             console.WriteLine("Press Any Key to begin the game");
             console.ReadKey();
 
-            var currentPlayer = 'X';
+            var currentPlayer = player1;
             do
             {
                 console.WriteLine("Game Board:");
                 console.WriteLine(gameBoard.Display());
-                gameBoard.Move(currentPlayer, new Random().Next(0, 3), new Random().Next(0, 3));
+                var position = currentPlayer.NextMove(gameBoard);
+                gameBoard.Move(currentPlayer, position);
                 currentPlayer = Toggle(currentPlayer);
+                Thread.Sleep(1000);
             }
             while (!gameBoard.GameIsOver());
             
@@ -36,9 +44,9 @@ namespace NoughtsAndCrosses
             console.ReadKey();
         }
 
-        private static char Toggle(char currentPlayer)
+        private Player Toggle(Player currentPlayer)
         {
-            return currentPlayer == 'X' ? 'O' : 'X';
+            return currentPlayer == player1 ? player2 : player1;
         }
     }
 }

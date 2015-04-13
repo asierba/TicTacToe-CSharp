@@ -6,6 +6,8 @@ namespace NoughtsAndCrosses
 
         bool GameIsOver();
 
-        void Move(char player, int x, int y);
+        void Move(Player player, Position position);
+
+        bool IsFree(Position position);
     }
 }

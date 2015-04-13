@@ -20,9 +20,14 @@ namespace NoughtsAndCrosses
                     squares[y, x] = player;
         }
 
-        public void Move(char player, int x, int y)
+        public void Move(Player player, Position position)
         {
-            squares[x, y] = player;
+            squares[position.X, position.Y] = player.Sign;
+        }
+
+        public bool IsFree(Position position)
+        {
+            return squares[position.X, position.Y] == Empty;
         }
 
         public string Display()
@@ -42,6 +47,7 @@ namespace NoughtsAndCrosses
 
         public bool GameIsOver()
         {
+            return false;
             throw new NotImplementedException();
         }
     }

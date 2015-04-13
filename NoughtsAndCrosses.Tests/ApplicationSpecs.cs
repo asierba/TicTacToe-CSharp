@@ -3,10 +3,6 @@
     using Machine.Fakes;
     using Machine.Specifications;
 
-    using Moq;
-
-    using It = Machine.Specifications.It;
-
     public class given_the_application_runs : WithSubject<Application>
     {
         Establish context = () =>
@@ -42,7 +38,7 @@
 
         It a_player_should_make_a_move = () =>
             The<IGameBoard>()
-                .WasToldTo(x => x.Move(Param.IsAny<char>(), Param.IsAny<int>(), Param.IsAny<int>()));
+                .WasToldTo(x => x.Move(Param.IsAny<Player>(), Param.IsAny<Position>()));
     }
 
     public class given_the_game_is_over_after_two_moves : WithSubject<Application>
@@ -50,10 +46,10 @@
         Establish game_is_over_after_two_moves = () =>
         {
             The<IGameBoard>()
-                .WhenToldTo(x => x.Move(Param.IsAny<char>(), Param.IsAny<int>(), Param.IsAny<int>()))
+                .WhenToldTo(x => x.Move(Param.IsAny<Player>(), Param.IsAny<Position>()))
                 .Callback(() =>
                 {
-                    The<IGameBoard>().WhenToldTo(x => x.Move(Param.IsAny<char>(), Param.IsAny<int>(), Param.IsAny<int>()))
+                    The<IGameBoard>().WhenToldTo(x => x.Move(Param.IsAny<Player>(), Param.IsAny<Position>()))
                         .Callback(() =>
                         {
                             The<IGameBoard>().WhenToldTo(x => x.GameIsOver()).Return(true);
@@ -70,9 +66,9 @@
         It both_players_should_make_a_move = () =>
         {
             The<IGameBoard>()
-                .WasToldTo(x => x.Move('X', Param.IsAny<int>(), Param.IsAny<int>()));
+                .WasToldTo(x => x.Move(Param<Player>.Matches(p => p.Sign == 'X'), Param.IsAny<Position>()));
             The<IGameBoard>()
-                .WasToldTo(x => x.Move('O', Param.IsAny<int>(), Param.IsAny<int>()));
+                .WasToldTo(x => x.Move(Param<Player>.Matches(p => p.Sign == 'O'), Param.IsAny<Position>()));
         };
             
     }

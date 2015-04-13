@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="ApplicationSpecs.cs" />
     <Compile Include="GameBoardSpecs.cs" />
+    <Compile Include="PlayerSpecs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

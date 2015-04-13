@@ -7,12 +7,16 @@
 
     public class given_a_new_board : WithSubject<GameBoard>
     {
-        It should_be_empty = () =>
+        It should_be_empty = () => {
             Subject.Display().ShouldEqual(
 @"[ ][ ][ ]
 [ ][ ][ ]
 [ ][ ][ ]
 ");
+            for (var y = 0; y <= 2; y++)
+                for (var x = 0; x <= 2; x++)
+             Subject.IsFree(new Position(x, y)).ShouldBeTrue();
+};
     }
 
     public class given_a_player_makes_a_move
@@ -35,7 +39,7 @@
         public void should_be_displayed_in_the_board(char player, int x, int y, string board)
         {
             var gameBoard = new GameBoard();
-            gameBoard.Move(player, x, y);
+            gameBoard.Move(new Player(player), new Position(x, y));
             gameBoard.Display().ShouldEqual(board);
         }
     }
