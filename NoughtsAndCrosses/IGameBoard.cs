@@ -9,5 +9,7 @@ namespace NoughtsAndCrosses
         void Move(Player player, Position position);
 
         bool IsFree(Position position);
+
+        string Result { get; }
     }
 }

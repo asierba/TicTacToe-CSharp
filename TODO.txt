@@ -1,2 +1,1 @@
-* displaythe result of the game at the end of the game
 * offer to run another game at the end of a game

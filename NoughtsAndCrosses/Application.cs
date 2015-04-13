@@ -44,6 +44,7 @@ namespace NoughtsAndCrosses
             
             console.WriteLine(gameBoard.Display());
             console.WriteLine("GAME OVER!!");
+            console.WriteLine(gameBoard.Result);
 
             console.ReadKey();
         }

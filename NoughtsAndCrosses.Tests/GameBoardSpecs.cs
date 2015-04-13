@@ -60,6 +60,9 @@
 
         It game_should_be_over = () =>
             Subject.GameIsOver().ShouldBeTrue();
+
+        It player_is_the_winner = () =>
+            Subject.Result.ShouldEqual("X Wins!");
     }
 
     public class given_a_player_makes_three_in_oposit_diagonal : WithSubject<GameBoard>
@@ -75,6 +78,9 @@
 
         It game_should_be_over = () =>
             Subject.GameIsOver().ShouldBeTrue();
+
+        It player_is_the_winner = () =>
+           Subject.Result.ShouldEqual("O Wins!");
     }
 
     public class given_a_player_makes_three_in_a_row : WithSubject<GameBoard>
@@ -90,8 +96,12 @@
 
         It game_should_be_over = () =>
             Subject.GameIsOver().ShouldBeTrue();
+
+        It player_is_the_winner = () =>
+           Subject.Result.ShouldEqual("X Wins!");
     }
 
+    // TODO delete this one
     public class given_a_player_makes_three_in_a_row2 : WithSubject<GameBoard>
     {
         Establish context = () =>
@@ -105,6 +115,9 @@
 
         It game_should_be_over = () =>
             Subject.GameIsOver().ShouldBeTrue();
+
+        It player_is_the_winner = () =>
+           Subject.Result.ShouldEqual("O Wins!");
     }
 
     public class given_a_player_makes_three_in_a_column : WithSubject<GameBoard>
@@ -120,6 +133,9 @@
 
         It game_should_be_over = () =>
             Subject.GameIsOver().ShouldBeTrue();
+
+        It player_is_the_winner = () =>
+          Subject.Result.ShouldEqual("O Wins!");
     }
 
     public class given_the_board_is_full : WithSubject<GameBoard>
@@ -142,5 +158,8 @@
 
         It game_should_be_over = () =>
             Subject.GameIsOver().ShouldBeTrue();
+
+        It should_be_a_draw = () =>
+           Subject.Result.ShouldEqual("Draw!");
     }
 }
