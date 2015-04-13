@@ -33,13 +33,17 @@ namespace NoughtsAndCrosses
             {
                 console.WriteLine("Game Board:");
                 console.WriteLine(gameBoard.Display());
+
                 var position = currentPlayer.NextMove(gameBoard);
                 gameBoard.Move(currentPlayer, position);
                 currentPlayer = Toggle(currentPlayer);
+                
                 Thread.Sleep(1000);
             }
             while (!gameBoard.GameIsOver());
             
+            console.WriteLine(gameBoard.Display());
+            console.WriteLine("GAME OVER!!");
 
             console.ReadKey();
         }

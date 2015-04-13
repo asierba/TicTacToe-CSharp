@@ -55,13 +55,17 @@
                             The<IGameBoard>().WhenToldTo(x => x.GameIsOver()).Return(true);
                         });
                 });
+
+            The<IGameBoard>()
+                .WhenToldTo(x => x.IsFree(Param.IsAny<Position>()))
+                .Return(true);
         };
 
         Because of = () =>
             Subject.Run();
 
-        It should_show_current_board_twice = () =>
-            The<IGameBoard>().WasToldTo(x => x.Display()).Times(2);
+        It should_show_current_board_more_than_once = () =>
+            The<IGameBoard>().WasToldTo(x => x.Display()).Times(3);
 
         It both_players_should_make_a_move = () =>
         {

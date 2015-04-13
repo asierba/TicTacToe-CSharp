@@ -1,3 +1,2 @@
-* pause for one second before updating the game board between moves
-* offer to run another game at the end of a game
 * displaythe result of the game at the end of the game
+* offer to run another game at the end of a game

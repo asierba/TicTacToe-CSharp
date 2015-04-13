@@ -4,6 +4,7 @@ namespace NoughtsAndCrosses
 
     public class Player
     {
+        private static readonly Random random = new Random();
 
         public Player(char sign)
         {
@@ -26,7 +27,7 @@ namespace NoughtsAndCrosses
 
         private static Position RandomPosition()
         {
-            return new Position(new Random().Next(0, 3), new Random().Next(0, 3));
+            return new Position(random.Next(0, 3), random.Next(0, 3));
         }
     }
 }
